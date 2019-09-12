@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import MapContainer from "../MapContainer/MapContainer";
-import HomeContainer from "../HomeContainer/HomeContainer"
+import LandingContainer from "../LandingContainer/LandingContainer"
 
 class App extends Component {
   constructor() {
@@ -15,10 +15,10 @@ class App extends Component {
       <div>
       <Route
         exact
-        path="/"
+        path="/landing"
         render={() => (
           <div>
-            <HomeContainer />
+            <LandingContainer />
           </div>
         )}
       />
@@ -27,7 +27,7 @@ class App extends Component {
         path="/map"
         render={() => (
           <div>
-            <MapContainer alabama={this.state.alabama} />
+            <MapContainer />
           </div>
         )}
       />

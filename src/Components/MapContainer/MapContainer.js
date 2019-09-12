@@ -1,6 +1,7 @@
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import React, { Component } from "react";
 import { getBreweriesByState } from "../../apiCalls/apiCalls";
+import { apiKey } from '../../apiCalls/apiKey'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export class MapContainer extends Component {
     console.log(this.props);
     this.state = {
       state: '',
-      array: [],
+      stateSearch: [],
       error: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,18 +20,18 @@ export class MapContainer extends Component {
   };
 
   async handleSubmit() {
-    this.setState({ array: [] });
+    this.setState({ stateSearch: [] });
     this.setState({ state: "" });
     try {
-      const array = await getBreweriesByState(this.state.state);
-      this.setState({ array });
+      const stateSearch = await getBreweriesByState(this.state.state);
+      this.setState({ stateSearch });
     } catch ({ message }) {
       this.setState({ error: message });
     }
   }
   displayMarkers = () => {
-    // console.log('this.state.array', this.state.array)
-    return this.state.array.map((brewery, index) => {
+    // console.log('this.state.stateSearch', this.state.stateSearch)
+    return this.state.stateSearch.map((brewery, index) => {
       return (
         <Marker
           key={index}
@@ -46,7 +47,7 @@ export class MapContainer extends Component {
   };
 
   render() {
-    console.log(this.state.array)
+    console.log(this.state.stateSearch)
     return (
       <div>
         <input
@@ -73,5 +74,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyChtQFPq3hEKIFERjREFsNVdyFdV1CxkhE"
+  apiKey: apiKey
 })(MapContainer);

@@ -1,21 +1,21 @@
 export const getBreweriesByState = async (state) => {
-  const alabamaBreweries = `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`
-  const response = await fetch(alabamaBreweries)
+  const stateBreweries = `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`
+  const response = await fetch(stateBreweries)
   if(!response.ok) {
     throw new Error('There was an error getting your albums')
   }
-  const alBreweries = await response.json();
-  return alBreweries
+  const allStateBreweries = await response.json();
+  return allStateBreweries
 }
 
-// export const getAlaskaBreweries = async () => {
-//   const alaskaBreweries = 'https://api.openbrewerydb.org/breweries?by_state=alaska&per_page=50'
-//   const response = await fetch(alaskaBreweries)
+// export const getBreweriesByCity = async (city) => {
+//   const cityBreweries = `https://api.openbrewerydb.org/breweries?by_name=${city}&per_page=50`
+//   const response = await fetch(cityBreweries)
 //   if(!response.ok) {
 //     throw new Error('There was an error getting your albums')
 //   }
-//   const akBreweries = await response.json();
-//   return akBreweries
+//   const allCityBreweries = await response.json();
+//   return allCityBreweries
 // }
 
 
