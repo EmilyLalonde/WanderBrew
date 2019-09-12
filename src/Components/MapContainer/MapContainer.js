@@ -1,6 +1,6 @@
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import React, { Component } from "react";
-import { getBreweriesByState } from "../../apiCalls/apiCalls";
+import { getBreweriesByState, getBreweriesByName } from "../../apiCalls/apiCalls";
 import { apiKey } from '../../apiCalls/apiKey'
 
 export class MapContainer extends Component {
@@ -9,17 +9,18 @@ export class MapContainer extends Component {
     console.log(this.props);
     this.state = {
       state: '',
+      name: '',
       stateSearch: [],
+      nameSearch: [],
       error: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  async handleSubmit() {
+  handleSubmitState = async () => {
     this.setState({ stateSearch: [] });
     this.setState({ state: "" });
     try {
@@ -29,9 +30,38 @@ export class MapContainer extends Component {
       this.setState({ error: message });
     }
   }
-  displayMarkers = () => {
+
+  handleSubmitName = async () => {
+    this.setState({ stateSearch: [] });
+    this.setState({ name: "" });
+    try {
+      const nameSearch = await getBreweriesByName(this.state.name)
+      this.setState({ nameSearch })
+    } catch ({ message }) {
+      this.setState({ error: message });
+    }
+  }
+
+  displayMarkersState = () => {
     // console.log('this.state.stateSearch', this.state.stateSearch)
     return this.state.stateSearch.map((brewery, index) => {
+      return (
+        <Marker
+          key={index}
+          id={index}
+          position={{
+            lat: brewery.latitude,
+            lng: brewery.longitude
+          }}
+          onClick={() => console.log(`${brewery.name}`)}
+        />
+      );
+    });
+  };
+  
+  displayMarkersName = () => {
+    console.log('this.state.nameSearch', this.state.nameSearch)
+    return this.state.nameSearch.map((brewery, index) => {
       return (
         <Marker
           key={index}
@@ -58,7 +88,18 @@ export class MapContainer extends Component {
           value={this.state.state}
           onChange={this.handleChange}
         />
-        <button className="search-button" onClick={this.handleSubmit}>
+        <button className="search-button" onClick={this.handleSubmitState}>
+          Submit
+        </button>
+        <input
+          type="text"
+          placeholder="Search for a name..."
+          name="name"
+          className="search"
+          value={this.state.name}
+          onChange={this.handleChange}
+        />
+        <button className="search-button" onClick={this.handleSubmitName}>
           Submit
         </button>
         <Map
@@ -66,7 +107,8 @@ export class MapContainer extends Component {
           zoom={5}
           initialCenter={{ lat: 39.8097343, lng: -98.5556199 }}
         >
-          {this.displayMarkers()}
+          {this.displayMarkersState()}
+          {this.displayMarkersName()}
         </Map>
       </div>
     );
