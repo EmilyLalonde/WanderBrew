@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import './StateContainer.css'
 import Card from '../Card/Card'
 
-const StateContainer = ({stateSearch}) => {
-  let searchResults = stateSearch.map(stateObj => {
+const StateContainer = ({stateResults}) => {
+  let searchResults = stateResults.map(stateObj => {
       return <Card 
       name={stateObj.name}
       street={stateObj.street} 
@@ -11,7 +12,7 @@ const StateContainer = ({stateSearch}) => {
       state={stateObj.state}
       phone={stateObj.phone}
       key={stateObj.id}
-      key={stateObj.id}/>
+      />
   })
   return (
     <div>
@@ -20,4 +21,8 @@ const StateContainer = ({stateSearch}) => {
   )
 }
 
-export default StateContainer
+const mapStateToProps = state => ({
+  stateResults:state.stateResults
+})
+
+export default connect(mapStateToProps, null)(StateContainer)
