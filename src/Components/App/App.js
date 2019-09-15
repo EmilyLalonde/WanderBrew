@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import MapContainer from "../MapContainer/MapContainer";
 import LandingContainer from "../LandingContainer/LandingContainer"
+import StateSearchContainer from "../StateSearchContainer/StateSearchContainer"
+import NameSearchContainer from "../NameSearchContainer/NameSearchContainer"
 
 class App extends Component {
   constructor() {
@@ -19,6 +21,24 @@ class App extends Component {
         render={() => (
           <div>
             <LandingContainer />
+          </div>
+        )}
+      />
+      <Route
+        exact
+        path="/statesearch"
+        render={() => (
+          <div>
+            <StateSearchContainer />
+          </div>
+        )}
+      />
+      <Route
+        exact
+        path="/namesearch"
+        render={() => (
+          <div>
+            <NameSearchContainer />
           </div>
         )}
       />
