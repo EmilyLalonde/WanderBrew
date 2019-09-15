@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getStateResults } from '../../actions'
 import './StateSearchContainer.css'
 import { getBreweriesByState } from "../../apiCalls/apiCalls";
 import StateContainer from '../StateContainer/StateContainer';
@@ -8,9 +11,6 @@ class StateSearchContainer extends Component {
     super()
     this.state = {
       state: '',
-      name: '',
-      stateSearch: [],
-      nameSearch: [],
       error: ''
     }
   }
@@ -20,17 +20,15 @@ class StateSearchContainer extends Component {
   };
 
   handleSubmitState = async () => {
-    this.setState({ stateSearch: [] });
     this.setState({ state: "" });
-    try {
-      const stateSearch = await getBreweriesByState(this.state.state);
-      this.setState({ stateSearch });
-    } catch ({ message }) {
-      this.setState({ error: message });
-    }
+    const { state } = this.state;
+    const { getStateResults } = this.props
+    getBreweriesByState(state)
+    .then(data => getStateResults(data))
   }
 
   render() {
+    console.log(this.props)
     return (
         <div>
         <input
@@ -44,10 +42,18 @@ class StateSearchContainer extends Component {
         <button className="search-button" onClick={this.handleSubmitState}>
           Submit
         </button>
-        <StateContainer stateSearch={this.state.stateSearch}/>
+        <StateContainer />
       </div>
     )
   }
 }
 
-export default StateSearchContainer
+const mapStateToProps = state => ({
+  stateResults: state.stateResults
+})
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getStateResults }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(StateSearchContainer)

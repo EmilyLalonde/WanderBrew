@@ -5,6 +5,7 @@ import MapContainer from "../MapContainer/MapContainer";
 import LandingContainer from "../LandingContainer/LandingContainer"
 import StateSearchContainer from "../StateSearchContainer/StateSearchContainer"
 import NameSearchContainer from "../NameSearchContainer/NameSearchContainer"
+import NavContainer from '../NavContainer/NavConatiner'
 
 class App extends Component {
   constructor() {
@@ -26,18 +27,20 @@ class App extends Component {
       />
       <Route
         exact
-        path="/statesearch"
+        path="/state-search"
         render={() => (
           <div>
+            <NavContainer />
             <StateSearchContainer />
           </div>
         )}
       />
       <Route
         exact
-        path="/namesearch"
+        path="/name-search"
         render={() => (
           <div>
+            <NavContainer />
             <NameSearchContainer />
           </div>
         )}
@@ -47,6 +50,7 @@ class App extends Component {
         path="/map"
         render={() => (
           <div>
+            <NavContainer />
             <MapContainer />
           </div>
         )}

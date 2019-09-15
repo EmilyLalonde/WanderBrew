@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getNameResults } from '../../actions'
 import './NameSearchContainer.css'
 import { getBreweriesByName } from "../../apiCalls/apiCalls";
 import NameContainer from '../NameContainer/NameContainer';
 
 class NameSearchContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      state: '',
       name: '',
-      stateSearch: [],
-      nameSearch: [],
       error: ''
     }
   }
@@ -20,17 +20,24 @@ class NameSearchContainer extends Component {
   };
 
   handleSubmitName = async () => {
-    this.setState({ stateSearch: [] });
     this.setState({ name: "" });
-    try {
-      const nameSearch = await getBreweriesByName(this.state.name)
-      this.setState({ nameSearch })
-    } catch ({ message }) {
-      this.setState({ error: message });
-    }
+    const { name } = this.state;
+    const { getNameResults } = this.props
+    getBreweriesByName(name)
+    .then(data => getNameResults(data))
   }
+    // this.setState({ stateSearch: [] });
+    // this.setState({ name: "" });
+    // try {
+    //   const nameSearch = await getBreweriesByName(this.state.name)
+    //   this.setState({ nameSearch })
+    // } catch ({ message }) {
+    //   this.setState({ error: message });
+    // }
+  
 
   render() {
+    console.log(this.props)
     return (
         <div>
         <input
@@ -44,10 +51,18 @@ class NameSearchContainer extends Component {
         <button className="search-button" onClick={this.handleSubmitName}>
           Submit
         </button>
-        <NameContainer nameSearch={this.state.nameSearch}/>
+        <NameContainer />
       </div>
     )
   }
 }
 
-export default NameSearchContainer
+const mapStateToProps = state => ({
+  nameResults:state.nameResults
+})
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getNameResults }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(NameSearchContainer)
