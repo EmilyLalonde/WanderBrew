@@ -1,25 +1,59 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import './LandingContainer.css'
 
 class LandingContainer extends Component {
   constructor() {
     super()
     this.state = {
-
+      name: '',
+      age: 0,
+      redirect: false,
+      error: 'You must be 21 to enter this site'
     }
   }
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmitUserInfo = (e) => {
+    // this.setState({ name: "" });
+    // this.setState({ age: "" });
+    if(this.state.age >= 21) {
+      this.setState({ redirect: true})
+    } else {
+      return <p>{this.state.error}</p>
+    }
+  }
+
   render() {
-  return (
-    <div>
-      <form>
-        <h4>Are you over 21?</h4>
-        <label htmlFor="yes-button">Yes</label>
-        <input type="radio" name="answer" value="yes" id="yes-button"/> 
-        <label htmlFor="no-button">No</label>
-        <input type="radio" name="answer" value="no" id="no-button"/> 
-      </form>
-    </div>
-  )
-}
+    if(this.state.redirect) {
+      return <Redirect to='/' />
+    }
+    return (
+      <div>
+        <input
+          type="text"
+          placeholder="Please Enter Your Name"
+          name="name"
+          className="user-name"
+          value={this.state.name}
+          onChange={this.handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Please Enter Your Age"
+          name="age"
+          className="user-age"
+          value={this.state.age}
+          onChange={this.handleChange}
+        />
+        <button className="search-button" onClick={this.handleSubmitUserInfo}>
+          Submit
+        </button>
+      </div>
+    )
+  }
 }
 export default LandingContainer
