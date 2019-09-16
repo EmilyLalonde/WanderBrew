@@ -12,14 +12,19 @@ import NameSearchContainer from "../../conatiners/NameSearchContainer/NameSearch
 import NavContainer from '../NavContainer/NavConatiner'
 import Card from '../Card/Card'
 import HomeContainer from '../HomeContainer/HomeContainer'
+import ImagesContainer from '../ImagesContainer/ImagesContainer'
+import NotesContainer from '../NotesConatiner/NotesContainer'
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       denverBreweries: [],
-      nationalBreweries: []
+      nationalBreweries: [],
+      notes: []
     }
+    this.addNote = this.addNote.bind(this);
   }
 
   componentDidMount () {
@@ -27,6 +32,10 @@ class App extends Component {
     .then(data => this.setState({denverBreweries: data}))
     getPopularBreweriesNational()
     .then(data => this.setState({nationalBreweries: data}))
+}
+
+  addNote (newNote) {
+    this.setState({notes: [...this.state.notes, newNote]})
 }
 
 //   addToVisited = id => {
@@ -100,6 +109,8 @@ class App extends Component {
               return (
                 <div>
                   <Card {...foundState} addToVisited={this.addToVisited}/>
+                  <ImagesContainer />
+                  <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
                 </div>
               );
           }} 
@@ -113,6 +124,8 @@ class App extends Component {
               return (
                 <div>
                   <Card {...foundName} addToVisited={this.addToVisited}/>
+                  <ImagesContainer />
+                  <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
                 </div>
               );
           }} 
@@ -129,6 +142,8 @@ class App extends Component {
               return (
                 <div>
                   <Card {...foundDefaultCO || foundDefaultNat} addToVisited={this.addToVisited}/>
+                  <ImagesContainer />
+                  <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
                 </div>
               );
           }} 
