@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addToVisited } from '../../actions/'
+import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../apiCalls/apiCalls'
 import "./App.css";
 import MapContainer from "../MapContainer/MapContainer";
 import LandingContainer from "../LandingContainer/LandingContainer"
@@ -15,8 +16,18 @@ import HomeContainer from '../HomeContainer/HomeContainer'
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      denverBreweries: [],
+      nationalBreweries: []
+    }
   }
+
+  componentDidMount () {
+    getPopularDenverBreweries()
+    .then(data => this.setState({denverBreweries: data}))
+    getPopularBreweriesNational()
+    .then(data => this.setState({nationalBreweries: data}))
+}
 
 //   addToVisited = id => {
 
@@ -42,7 +53,7 @@ class App extends Component {
         render={() => (
           <div>
             <NavContainer />
-            <HomeContainer />
+            <HomeContainer denverBreweries={this.state.denverBreweries} nationalBreweries={this.state.nationalBreweries}/>
           </div>
         )}
       />
@@ -102,6 +113,22 @@ class App extends Component {
               return (
                 <div>
                   <Card {...foundName} addToVisited={this.addToVisited}/>
+                </div>
+              );
+          }} 
+        />
+        <Route
+          path="/home/:id"
+          render={({ match }) => {
+            const foundDefaultCO = this.state.denverBreweries.find(
+              brew => brew.id === parseInt(match.params.id)
+            );
+            const foundDefaultNat = this.state.nationalBreweries.find(
+              brew => brew.id === parseInt(match.params.id)
+            );
+              return (
+                <div>
+                  <Card {...foundDefaultCO || foundDefaultNat} addToVisited={this.addToVisited}/>
                 </div>
               );
           }} 
