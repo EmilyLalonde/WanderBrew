@@ -11,7 +11,8 @@ class StateSearchContainer extends Component {
     super()
     this.state = {
       state: '',
-      error: ''
+      error: '', 
+      favorites: []
     }
   }
 

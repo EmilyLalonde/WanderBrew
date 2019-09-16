@@ -1,7 +1,9 @@
 import React from 'react'
 import './Card.css'
+import favorite from '../../images/favoriteIcon.svg';
+import isNotFavorite from '../../images/isNotFavorite.svg';
 
-const Card = ({name, street, city, state, phone}) => {
+const Card = ({id, name, street, city, state, phone, toggleStateSearchFaves}) => {
   return (
     <div className="card">
       <h1>{name}</h1>

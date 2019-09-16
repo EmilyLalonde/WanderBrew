@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
+import { getPopularDenverBreweries } from '../../apiCalls/apiCalls'
 import './HomeContainer.css'
+import DefaultBreweriesContainer from '../DefaultBreweriesContainer/DefaultBreweriesContainer'
 
 class HomeContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-
+      denverBreweries: []
     }
+  }
+
+  componentDidMount () {
+      getPopularDenverBreweries()
+      .then(data => this.setState({denverBreweries: data}))
   }
 
   render() {
     return (
     <div>
-      Hey
+      <h1>WanderBrew</h1>
+      <DefaultBreweriesContainer denverBreweries={this.state.denverBreweries} />
     </div>
     )
   }
