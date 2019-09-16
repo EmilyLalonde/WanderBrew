@@ -19,7 +19,7 @@ class HomeContainer extends Component {
   render() {
     return (
     <div>
-      <h1>WanderBrew</h1>
+      {/* <h1 className="site-header">WanderBrew</h1> */}
       <DefaultBreweriesContainer denverBreweries={this.state.denverBreweries} />
     </div>
     )

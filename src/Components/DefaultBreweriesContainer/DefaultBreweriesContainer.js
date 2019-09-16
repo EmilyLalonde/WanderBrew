@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../Card/Card'
+import './DefaultBreweriesContainer.css'
 
 const DefaultBreweriesContainer = ({denverBreweries}) => {
   const denBreweries = denverBreweries.map(brewery => {
@@ -14,9 +15,9 @@ const DefaultBreweriesContainer = ({denverBreweries}) => {
     />
   })
   return (
-    <div>
+    <main class="default-page">
       {denBreweries}
-    </div>
+    </main>
   )
 }
 

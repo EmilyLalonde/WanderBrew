@@ -51,8 +51,10 @@ class App extends Component {
         path="/state-search"
         render={() => (
           <div>
-            <NavContainer />
+          <NavContainer />
+            <main  class="name-container">
             <StateSearchContainer addToVisited={this.addToVisited}/>
+          </main>
           </div>
         )}
       />
