@@ -1,7 +1,7 @@
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import React, { Component } from "react";
 import { getBreweriesByState, getBreweriesByName } from "../../apiCalls/apiCalls";
-import { apiKey } from '../../apiCalls/apiKey'
+import { apiKey } from '../../apiCalls/apiKey.js'
 import './MapContainer.css'
 
 export class MapContainer extends Component {
