@@ -46,6 +46,7 @@ class NameSearchContainer extends Component {
       </div>
       <div className="name-search-container">
         <NameContainer />
+        <h4>^ Search for Breweries by Name ^</h4>
         </div>
       </main>
     )

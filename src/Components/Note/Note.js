@@ -1,10 +1,9 @@
 import React from 'react'
+import './Note.css'
 
 const Note = ({note}) => {
   return (
-    <div>
-      <p>{note}</p>
-    </div>
+      <li className="note-text">{note}</li>
   )
 }
 

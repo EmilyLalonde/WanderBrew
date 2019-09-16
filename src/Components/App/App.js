@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addToVisited } from '../../actions/'
+import { NavLink } from 'react-router-dom';
 import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../apiCalls/apiCalls'
 import "./App.css";
 import MapContainer from "../MapContainer/MapContainer";
@@ -108,6 +109,9 @@ class App extends Component {
             );
               return (
                 <div>
+                  <div className="name-nav">
+                  <NavLink to='/' className='Nav'>-- Home --  </NavLink>
+                  </div>
                   <Card {...foundState} addToVisited={this.addToVisited}/>
                   <ImagesContainer />
                   <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
@@ -123,6 +127,9 @@ class App extends Component {
             );
               return (
                 <div>
+                  <div className="name-nav">
+                  <NavLink to='/' className='Nav'>-- Home --</NavLink>
+                  </div>
                   <Card {...foundName} addToVisited={this.addToVisited}/>
                   <ImagesContainer />
                   <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
@@ -141,6 +148,9 @@ class App extends Component {
             );
               return (
                 <div>
+                  <div className="name-nav">
+                  <NavLink to='/' className='Nav'> --Home --</NavLink>
+                  </div>
                   <Card {...foundDefaultCO || foundDefaultNat} addToVisited={this.addToVisited}/>
                   <ImagesContainer />
                   <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
