@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addToVisited } from '../../actions/'
 import "./App.css";
 import MapContainer from "../MapContainer/MapContainer";
 import LandingContainer from "../LandingContainer/LandingContainer"
-import StateSearchContainer from "../StateSearchContainer/StateSearchContainer"
-import NameSearchContainer from "../NameSearchContainer/NameSearchContainer"
+import StateSearchContainer from "../../conatiners/StateSearchContainer/StateSearchContainer"
+import NameSearchContainer from "../../conatiners/NameSearchContainer/NameSearchContainer"
 import NavContainer from '../NavContainer/NavConatiner'
 import Card from '../Card/Card'
 import HomeContainer from '../HomeContainer/HomeContainer'
@@ -15,6 +17,10 @@ class App extends Component {
     super();
     this.state = {};
   }
+
+//   addToVisited = id => {
+
+// }
 
   render() {
     const { stateResults, nameResults} = this.props
@@ -46,7 +52,7 @@ class App extends Component {
         render={() => (
           <div>
             <NavContainer />
-            <StateSearchContainer />
+            <StateSearchContainer addToVisited={this.addToVisited}/>
           </div>
         )}
       />
@@ -56,7 +62,7 @@ class App extends Component {
         render={() => (
           <div>
             <NavContainer />
-            <NameSearchContainer />
+            <NameSearchContainer addToVisited={this.addToVisited}/>
           </div>
         )}
       />
@@ -78,7 +84,7 @@ class App extends Component {
             );
               return (
                 <div>
-                  <Card {...foundState}/>
+                  <Card {...foundState} addToVisited={this.addToVisited}/>
                 </div>
               );
           }} 
@@ -91,7 +97,7 @@ class App extends Component {
             );
               return (
                 <div>
-                  <Card {...foundName}/>
+                  <Card {...foundName} addToVisited={this.addToVisited}/>
                 </div>
               );
           }} 
@@ -103,7 +109,12 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   stateResults: state.stateResults,
-  nameResults: state.nameResults
+  nameResults: state.nameResults,
+  visited: state.visited
 })
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ addToVisited }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
