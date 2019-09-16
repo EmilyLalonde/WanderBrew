@@ -12,6 +12,7 @@ const NameContainer = ({nameResults}) => {
       state={nameObj.state}
       phone={nameObj.phone}
       key={nameObj.id}
+      id={nameObj.id}
       />
   })
   return (

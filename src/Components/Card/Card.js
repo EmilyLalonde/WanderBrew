@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Card = ({name, street, city, state, phone}) => {
-  console.log('state', state)
   return (
     <div>
       <h1>{name}</h1>

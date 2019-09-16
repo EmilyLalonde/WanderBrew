@@ -26,15 +26,6 @@ class NameSearchContainer extends Component {
     getBreweriesByName(name)
     .then(data => getNameResults(data))
   }
-    // this.setState({ stateSearch: [] });
-    // this.setState({ name: "" });
-    // try {
-    //   const nameSearch = await getBreweriesByName(this.state.name)
-    //   this.setState({ nameSearch })
-    // } catch ({ message }) {
-    //   this.setState({ error: message });
-    // }
-  
 
   render() {
     console.log(this.props)
