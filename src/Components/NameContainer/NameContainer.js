@@ -1,11 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import './NameContainer.css'
 import Card from '../Card/Card'
 
 const NameContainer = ({nameResults}) => {
   let searchResults = nameResults.map(nameObj => {
-      return <Card 
+      return (
+      <Link to={`/name-search/${nameObj.id}`} key={nameObj.id}>
+      <Card 
       name={nameObj.name}
       street={nameObj.street} 
       city={nameObj.city}
@@ -14,6 +17,8 @@ const NameContainer = ({nameResults}) => {
       key={nameObj.id}
       id={nameObj.id}
       />
+      </Link>
+      )
   })
   return (
     <div>

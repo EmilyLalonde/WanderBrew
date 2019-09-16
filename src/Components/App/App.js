@@ -9,6 +9,7 @@ import NameSearchContainer from "../NameSearchContainer/NameSearchContainer"
 import NavContainer from '../NavContainer/NavConatiner'
 import StateContainer from '../StateContainer/StateContainer'
 import Card from '../Card/Card'
+import HomeContainer from '../HomeContainer/HomeContainer'
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,15 @@ class App extends Component {
         render={() => (
           <div>
             <LandingContainer />
+          </div>
+        )}
+      />
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <div>
+            <HomeContainer />
           </div>
         )}
       />
@@ -70,6 +80,20 @@ class App extends Component {
               return (
                 <div>
                   <Card {...foundState}/>
+                </div>
+              );
+          }} 
+        />
+        <Route
+          path="/name-search/:id"
+          render={({ match }) => {
+            console.log('stateResultsFind', stateResults)
+            const foundName = nameResults.find(
+              name => name.id === parseInt(match.params.id)
+            );
+              return (
+                <div>
+                  <Card {...foundName}/>
                 </div>
               );
           }} 
