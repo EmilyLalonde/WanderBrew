@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import './NameContainer.css'
-import Card from '../Card/Card'
+import Card from '../../Components/Card/Card'
 
 const NameContainer = ({nameResults}) => {
   let searchResults = nameResults.map(nameObj => {

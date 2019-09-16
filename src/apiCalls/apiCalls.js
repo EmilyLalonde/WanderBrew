@@ -29,4 +29,17 @@ export const getBreweriesByName = async (name) => {
 
 export const getPopularDenverBreweries = async () => {
 
+     let [littleMachine, westfax, ratio, seedstock] =
+     await Promise.all(['little_machine', 'westfax', 'ratio_beerworks', 'seedstock'].map(name => {
+      return fetch(`https://api.openbrewerydb.org/breweries?by_name=${name}`)
+     }))
+     if(!littleMachine.ok) {
+      throw new Error('There was an error getting your breweries')
+    }
+    const littleMachineRes = await littleMachine.json();
+    const westfaxRes = await westfax.json();
+    const ratioRes = await ratio.json();
+    const seedstockRes = await seedstock.json()
+    const allDenver = [littleMachineRes, westfaxRes, ratioRes, seedstockRes]
+    return allDenver.flat()
 }
