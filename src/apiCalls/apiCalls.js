@@ -43,3 +43,20 @@ export const getPopularDenverBreweries = async () => {
     const allDenver = [littleMachineRes, westfaxRes, ratioRes, seedstockRes]
     return allDenver.flat()
 }
+
+export const getPopularBreweriesNational = async () => {
+
+  let [dogfishHead, allagash, ninkasi, summitBrewing] =
+  await Promise.all(['dogfish_head_craft_brewery', 'allagash', 'ninkasi', 'summit_brewing'].map(name => {
+   return fetch(`https://api.openbrewerydb.org/breweries?by_name=${name}`)
+  }))
+  if(!dogfishHead.ok) {
+   throw new Error('There was an error getting your breweries')
+ }
+ const dogfishHeadRes = await dogfishHead.json();
+ const allagashRes = await allagash.json();
+ const ninkasiRes = await ninkasi.json();
+ const summitBrewingRes = await summitBrewing.json()
+ const allDenver = [dogfishHeadRes, allagashRes, ninkasiRes, summitBrewingRes]
+ return allDenver.flat()
+}

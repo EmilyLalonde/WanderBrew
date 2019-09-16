@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getPopularDenverBreweries } from '../../apiCalls/apiCalls'
+import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../apiCalls/apiCalls'
 import './HomeContainer.css'
 import DefaultBreweriesContainer from '../DefaultBreweriesContainer/DefaultBreweriesContainer'
 
@@ -7,20 +7,23 @@ class HomeContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      denverBreweries: []
+      denverBreweries: [],
+      nationalBreweries: []
     }
   }
 
   componentDidMount () {
       getPopularDenverBreweries()
       .then(data => this.setState({denverBreweries: data}))
+      getPopularBreweriesNational()
+      .then(data => this.setState({nationalBreweries: data}))
   }
 
   render() {
     return (
     <div>
-      {/* <h1 className="site-header">WanderBrew</h1> */}
-      <DefaultBreweriesContainer denverBreweries={this.state.denverBreweries} />
+      <DefaultBreweriesContainer breweries={this.state.denverBreweries}/>
+      <DefaultBreweriesContainer breweries={this.state.nationalBreweries}/>
     </div>
     )
   }
