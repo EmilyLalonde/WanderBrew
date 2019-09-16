@@ -1,22 +1,32 @@
 export const getBreweriesByState = async (state) => {
-  const stateBreweries = `https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`
-  const response = await fetch(stateBreweries)
-  if(!response.ok) {
-    throw new Error('There was an error getting your albums')
+  let [stateBreweries50, stateBreweries100, stateBreweries150, stateBreweries200, stateBreweries250, stateBreweries300] = 
+  await Promise.all([1,2,3,4,5,6].map(num => {
+    return fetch(`https://api.openbrewerydb.org/breweries?by_state=${state}&page=${num}&per_page=50`)
+  }))
+  if(!stateBreweries50.ok) {
+    throw new Error('There was an error getting your breweries')
   }
-  const allStateBreweries = await response.json();
-  return allStateBreweries
+   const allStateBreweries1 = await stateBreweries50.json();
+   const allStateBreweries2 = await stateBreweries100.json();
+   const allStateBreweries3 = await stateBreweries150.json();
+   const allStateBreweries4 = await stateBreweries200.json();
+   const allStateBreweries5 = await stateBreweries250.json();
+   const allStateBreweries6 = await stateBreweries300.json();
+   const all = [allStateBreweries1, allStateBreweries2, allStateBreweries3, allStateBreweries4, allStateBreweries5, allStateBreweries6]
+   return all.flat()
 }
 
 export const getBreweriesByName = async (name) => {
   const nameBreweries = `https://api.openbrewerydb.org/breweries?by_name=${name}&per_page=50`
   const response = await fetch(nameBreweries)
   if(!response.ok) {
-    throw new Error('There was an error getting your albums')
+    throw new Error('There was an error getting your breweries')
   }
   const namedBrewery = await response.json();
   console.log(namedBrewery)
   return namedBrewery
 }
 
+export const getPopularDenverBreweries = async () => {
 
+}

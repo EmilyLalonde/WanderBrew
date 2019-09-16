@@ -7,7 +7,7 @@ class LandingContainer extends Component {
     super()
     this.state = {
       name: '',
-      age: 0,
+      age: '',
       redirect: false,
       error: 'You must be 21 to enter this site'
     }
@@ -18,8 +18,9 @@ class LandingContainer extends Component {
   };
 
   handleSubmitUserInfo = (e) => {
-    // this.setState({ name: "" });
-    // this.setState({ age: "" });
+    e.preventDefault()
+    this.setState({ name: "" });
+    this.setState({ age: "" });
     if(this.state.age >= 21) {
       this.setState({ redirect: true})
     } else {
