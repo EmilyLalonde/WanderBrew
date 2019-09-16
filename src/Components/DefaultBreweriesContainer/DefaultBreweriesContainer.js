@@ -2,8 +2,8 @@ import React from 'react'
 import Card from '../Card/Card'
 import './DefaultBreweriesContainer.css'
 
-const DefaultBreweriesContainer = ({denverBreweries}) => {
-  const denBreweries = denverBreweries.map(brewery => {
+const DefaultBreweriesContainer = ({breweries}) => {
+  const denBreweries = breweries.map(brewery => {
     return <Card 
       name={brewery.name}
       street={brewery.street} 
