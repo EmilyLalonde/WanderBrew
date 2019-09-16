@@ -22,7 +22,9 @@ class HomeContainer extends Component {
   render() {
     return (
     <div>
+      <h3>Featured Denver Breweries</h3>
       <DefaultBreweriesContainer breweries={this.state.denverBreweries}/>
+      <h3>Featured National Breweries</h3>
       <DefaultBreweriesContainer breweries={this.state.nationalBreweries}/>
     </div>
     )

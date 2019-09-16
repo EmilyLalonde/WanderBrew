@@ -21,7 +21,7 @@ const NameContainer = ({nameResults}) => {
       )
   })
   return (
-    <div>
+    <div className="name-search-results">
       {searchResults}
     </div>
   )

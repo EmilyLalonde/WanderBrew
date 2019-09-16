@@ -12,8 +12,8 @@ const NavContainer = () => {
             <input type="checkbox" id="toggle" name="toggle" />
             <div class="verticalNav">
             <NavLink to='/' className='Nav'>Home</NavLink>
-            <NavLink to='/state-search' className='Nav'>Search by State</NavLink>
-            <NavLink to='/name-search' className='Nav'>Search by Name</NavLink>
+            <NavLink to='/state-search' className='Nav'>Search Brewery by State</NavLink>
+            <NavLink to='/name-search' className='Nav'>Search Brewery by Name</NavLink>
             <NavLink to='/map' className='Nav'>Brewery Map</NavLink>
             </div>
         </nav>

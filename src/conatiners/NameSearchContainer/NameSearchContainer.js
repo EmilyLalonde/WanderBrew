@@ -30,7 +30,8 @@ class NameSearchContainer extends Component {
   render() {
     console.log(this.props)
     return (
-        <div>
+      <main className="name-main">
+      <div className="name-input-container">
         <input
           type="text"
           placeholder="Search for a name..."
@@ -42,8 +43,11 @@ class NameSearchContainer extends Component {
         <button className="search-button" onClick={this.handleSubmitName}>
           Submit
         </button>
-        <NameContainer />
       </div>
+      <div className="name-search-container">
+        <NameContainer />
+        </div>
+      </main>
     )
   }
 }
