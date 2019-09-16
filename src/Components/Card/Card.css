@@ -1,9 +1,12 @@
 .card {
   border: 1px solid black;
-  height: 250px;
+  display: grid;
+  margin-left: 10%;
+  text-align: center;
   text-decoration: none;
-  width: 300px;
+  width: 80%;
 }
+
 
 a {
   text-decoration: none;
