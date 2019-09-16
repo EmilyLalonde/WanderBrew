@@ -1,34 +1,16 @@
-import React, { Component } from 'react'
-import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../apiCalls/apiCalls'
+import React from 'react'
 import './HomeContainer.css'
 import DefaultBreweriesContainer from '../DefaultBreweriesContainer/DefaultBreweriesContainer'
 
-class HomeContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      denverBreweries: [],
-      nationalBreweries: []
-    }
-  }
-
-  componentDidMount () {
-      getPopularDenverBreweries()
-      .then(data => this.setState({denverBreweries: data}))
-      getPopularBreweriesNational()
-      .then(data => this.setState({nationalBreweries: data}))
-  }
-
-  render() {
+const HomeContainer = ({denverBreweries, nationalBreweries}) => {
     return (
     <div>
       <h3>Featured Denver Breweries</h3>
-      <DefaultBreweriesContainer breweries={this.state.denverBreweries}/>
+      <DefaultBreweriesContainer breweries={denverBreweries}/>
       <h3>Featured National Breweries</h3>
-      <DefaultBreweriesContainer breweries={this.state.nationalBreweries}/>
+      <DefaultBreweriesContainer breweries={nationalBreweries}/>
     </div>
     )
-  }
 }
 
 export default HomeContainer

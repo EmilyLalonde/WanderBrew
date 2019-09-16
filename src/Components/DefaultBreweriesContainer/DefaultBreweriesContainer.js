@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Card from '../Card/Card'
 import './DefaultBreweriesContainer.css'
 
 const DefaultBreweriesContainer = ({breweries}) => {
   const denBreweries = breweries.map(brewery => {
-    return <Card 
+    return (
+      <Link to={`/home/${brewery.id}`} key={brewery.id}>
+    <Card 
       name={brewery.name}
       street={brewery.street} 
       city={brewery.city}
@@ -13,6 +16,8 @@ const DefaultBreweriesContainer = ({breweries}) => {
       key={brewery.id}
       id={brewery.id}
     />
+    </Link>
+    )
   })
   return (
     <main class="default-page">
