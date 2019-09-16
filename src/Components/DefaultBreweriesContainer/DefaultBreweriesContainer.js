@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 const DefaultBreweriesContainer = ({denverBreweries}) => {
   const denBreweries = denverBreweries.map(brewery => {
     return <Card 
-    name={brewery.name}
+      name={brewery.name}
       street={brewery.street} 
       city={brewery.city}
       state={brewery.state}
