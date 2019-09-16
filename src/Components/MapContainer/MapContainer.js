@@ -71,6 +71,7 @@ export class MapContainer extends Component {
             lat: brewery.latitude,
             lng: brewery.longitude
           }}
+          label={`${brewery.name}`}
           onClick={() => console.log(`${brewery.name}`)}
         />
       );
