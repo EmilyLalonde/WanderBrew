@@ -26,7 +26,7 @@ class App extends Component {
     const { stateResults, nameResults} = this.props
     console.log(stateResults)
     return (
-      <div>
+      <div className="body">
       <Route
         exact
         path="/landing"
@@ -52,9 +52,7 @@ class App extends Component {
         render={() => (
           <div>
           <NavContainer />
-            <main  class="name-container">
             <StateSearchContainer addToVisited={this.addToVisited}/>
-          </main>
           </div>
         )}
       />
@@ -73,8 +71,12 @@ class App extends Component {
         path="/map"
         render={() => (
           <div>
+            <div className="map-nav">
             <NavContainer />
+            </div>
+            <div className="map">
             <MapContainer />
+            </div>
           </div>
         )}
       />

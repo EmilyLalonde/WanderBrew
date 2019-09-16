@@ -30,7 +30,8 @@ class StateSearchContainer extends Component {
 
   render() {
     return (
-        <div>
+      <main className="state-main">
+        <div className="state-input-container">
         <input
           type="text"
           placeholder="Search for a State..."
@@ -42,8 +43,11 @@ class StateSearchContainer extends Component {
         <button className="search-button" onClick={this.handleSubmitState}>
           Submit
         </button>
+        </div>
+        <div className="state-search-container">
         <StateContainer />
-      </div>
+        </div>
+        </main>
     )
   }
 }

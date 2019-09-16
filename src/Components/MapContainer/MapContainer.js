@@ -2,6 +2,7 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import React, { Component } from "react";
 import { getBreweriesByState, getBreweriesByName } from "../../apiCalls/apiCalls";
 import { apiKey } from '../../apiCalls/apiKey'
+import './MapContainer.css'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -80,36 +81,43 @@ export class MapContainer extends Component {
     console.log(this.state.stateSearch)
     return (
       <div>
+        <div className="map-state-search">
         <input
           type="text"
           placeholder="Search for a State..."
           name="state"
-          className="search"
+          className="search-map"
           value={this.state.state}
           onChange={this.handleChange}
         />
-        <button className="search-button" onClick={this.handleSubmitState}>
+        <button className="map-search-button" onClick={this.handleSubmitState}>
           Submit
         </button>
+        </div>
+        <div className="map-name-search">
         <input
           type="text"
           placeholder="Search for a name..."
           name="name"
-          className="search"
+          className="search-map"
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button className="search-button" onClick={this.handleSubmitName}>
+        <button className="map-search-button" onClick={this.handleSubmitName}>
           Submit
         </button>
+        </div>
+        <div className = "map">
         <Map
           google={this.props.google}
           zoom={5}
           initialCenter={{ lat: 39.8097343, lng: -98.5556199 }}
+          // style={{height: '80%', width: '100%'}}
         >
           {this.displayMarkersState()}
           {this.displayMarkersName()}
         </Map>
+        </div>
       </div>
     );
   }

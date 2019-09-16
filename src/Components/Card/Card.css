@@ -1,12 +1,22 @@
 .card {
   border: 1px solid black;
-  display: grid;
-  margin-left: 10%;
+  margin-left: 8%;
+  margin-top: 20px;
   text-align: center;
   text-decoration: none;
-  width: 80%;
+  width: 84%;
 }
 
+h2 {
+  color: black;
+  margin: 0;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.card-p {
+  color: black;
+}
 
 a {
   text-decoration: none;

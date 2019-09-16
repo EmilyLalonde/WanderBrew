@@ -21,7 +21,7 @@ const StateContainer = ({ stateResults }) => {
       )
   })
   return (
-    <div>
+    <div className="state-search-results">
       {searchResults}
     </div>
   )

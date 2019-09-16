@@ -1,0 +1,21 @@
+.map-state-search,
+.map-name-search {
+  border: 2px solid black;
+  display: inline-block;
+  height: 36px;
+  margin-left: 3%;
+  width: 45%;
+} 
+
+.map-search-button {
+  border-left: 2px solid black;
+  display: inline-block;
+  float: right;
+  height: 36px;
+  width: 12%;
+}
+
+.search-map {
+  height: 30px;
+  width: 87%;
+}
