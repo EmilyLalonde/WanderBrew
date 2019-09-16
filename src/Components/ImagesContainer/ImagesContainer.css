@@ -1,13 +1,13 @@
 .image {
   border: 1px solid black;
   float: left;
-  height: 63vh;
+  height: 60vh;
   margin-left: 8%;
   margin-top: 30px;
   width: 40vw;
 }
 
 img {
-  height: 63vh;
+  height: 60vh;
   width: 40vw;
 }

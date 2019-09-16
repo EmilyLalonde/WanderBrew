@@ -3,7 +3,7 @@ import './Card.css'
 import favorite from '../../images/favoriteIcon.svg';
 import isNotFavorite from '../../images/isNotFavorite.svg';
 
-export const Card = ({id, name, street, city, state, phone}) => {
+export const Card = ({id, name, street, city, state, phone, website}) => {
   return (
     <div className="card">
       <h2>{name}</h2>

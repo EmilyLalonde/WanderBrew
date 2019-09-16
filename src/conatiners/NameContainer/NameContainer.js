@@ -14,6 +14,7 @@ const NameContainer = ({nameResults}) => {
       city={nameObj.city}
       state={nameObj.state}
       phone={nameObj.phone}
+      website={nameObj.website_url}
       key={nameObj.id}
       id={nameObj.id}
       />

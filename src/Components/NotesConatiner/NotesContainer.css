@@ -1,8 +1,23 @@
 .notes {
   border: 1px solid black;
   float: right;
-  height: 63vh;
+  height: 60vh;
   margin-right: 8%;
   margin-top: 30px;
+  overflow: scroll;
   width: 40vw;
+}
+
+textarea {
+  height: 60px;
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 98.6%;
+}
+
+.note-button {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 30px;
+  width: 100%;
 }

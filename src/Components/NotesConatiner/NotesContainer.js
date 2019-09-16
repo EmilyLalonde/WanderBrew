@@ -24,14 +24,14 @@ class NotesContainer extends Component {
   return (
     <div className="notes">
       <form>
-      <input 
+      <textarea 
       type="text" 
       placeholder="Add notes here" 
       name="note" 
       value={this.state.note} 
       onChange={this.handleChange}>
-      </input>
-      <button type="submit" onClick={this.submitNote}>Add Note</button>
+      </textarea>
+      <button type="submit" className="note-button" onClick={this.submitNote}>Add Note</button>
       </form>
       <Notes notes={this.props.notes} />
     </div>

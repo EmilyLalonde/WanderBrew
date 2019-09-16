@@ -46,6 +46,7 @@ class StateSearchContainer extends Component {
         </div>
         <div className="state-search-container">
         <StateContainer />
+        <h4>^ Search for Breweries by State ^</h4>
         </div>
         </main>
     )
