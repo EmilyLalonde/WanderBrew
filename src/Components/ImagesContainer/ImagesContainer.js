@@ -1,10 +1,12 @@
 import React from 'react'
 import './ImagesContainer.css'
+import { beerImages } from '../../imageData'
 
 const ImagesContainer = () => {
+  let img = beerImages
   return (
     <div className="image">
-      <img src='https://static.vinepair.com/wp-content/uploads/2018/06/beer-bubble-cover-mobile.jpg' alt='' />
+      <img src={img[Math.floor(Math.random() * Math.floor(7))].img} alt='' />
     </div>
   )
 }
