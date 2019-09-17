@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { addToVisited } from '../../actions'
 import { NavLink } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../apiCalls/apiCalls'
+import { getDenverBreweries, getNationalBreweries} from '../../actions'
 import "./App.css";
 import MapContainer from "../../Components/MapContainer/MapContainer";
 import LandingContainer from "../../Components/LandingContainer/LandingContainer"
@@ -15,7 +15,6 @@ import Card from '../../Components/Card/Card'
 import HomeContainer from '../../Components/HomeContainer/HomeContainer'
 import ImagesContainer from '../../Components/ImagesContainer/ImagesContainer'
 import NotesContainer from '../../Components/NotesConatiner/NotesContainer'
-
 
 export class App extends Component {
   constructor() {
@@ -29,19 +28,16 @@ export class App extends Component {
   }
 
   componentDidMount () {
+    const { getDenverBreweries, getNationalBreweries} = this.props
     getPopularDenverBreweries()
-    .then(data => this.setState({denverBreweries: data}))
+    .then(data => getDenverBreweries(data))
     getPopularBreweriesNational()
-    .then(data => this.setState({nationalBreweries: data}))
+    .then(data => getNationalBreweries(data))
 }
 
   addNote (newNote) {
     this.setState({notes: [...this.state.notes, newNote]})
-}
-
-//   addToVisited = id => {
-
-// }
+} 
 
   render() {
     const { stateResults, nameResults} = this.props
@@ -62,7 +58,7 @@ export class App extends Component {
         render={() => (
           <div>
             <NavContainer />
-            <HomeContainer denverBreweries={this.state.denverBreweries} nationalBreweries={this.state.nationalBreweries}/>
+            <HomeContainer/>
           </div>
         )}
       />
@@ -72,7 +68,7 @@ export class App extends Component {
         render={() => (
           <div>
           <NavContainer />
-            <StateSearchContainer addToVisited={this.addToVisited}/>
+            <StateSearchContainer/>
           </div>
         )}
       />
@@ -82,7 +78,7 @@ export class App extends Component {
         render={() => (
           <div>
             <NavContainer />
-            <NameSearchContainer addToVisited={this.addToVisited}/>
+            <NameSearchContainer/>
           </div>
         )}
       />
@@ -111,7 +107,7 @@ export class App extends Component {
                   <div className="name-nav">
                   <NavLink to='/' className='Nav'>-- Home --  </NavLink>
                   </div>
-                  <Card {...foundState} addToVisited={this.addToVisited}/>
+                  <Card {...foundState}/>
                   <ImagesContainer />
                   <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
                 </div>
@@ -129,7 +125,7 @@ export class App extends Component {
                   <div className="name-nav">
                   <NavLink to='/' className='Nav'>-- Home --</NavLink>
                   </div>
-                  <Card {...foundName} addToVisited={this.addToVisited}/>
+                  <Card {...foundName}/>
                   <ImagesContainer />
                   <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
                 </div>
@@ -139,10 +135,10 @@ export class App extends Component {
         <Route
           path="/home/:id"
           render={({ match }) => {
-            const foundDefaultCO = this.state.denverBreweries.find(
+            const foundDefaultCO = this.props.getDenverBreweries.find(
               brew => brew.id === parseInt(match.params.id)
             );
-            const foundDefaultNat = this.state.nationalBreweries.find(
+            const foundDefaultNat = this.props.getNationalBreweries.find(
               brew => brew.id === parseInt(match.params.id)
             );
               return (
@@ -150,7 +146,7 @@ export class App extends Component {
                   <div className="name-nav">
                   <NavLink to='/' className='Nav'> --Home --</NavLink>
                   </div>
-                  <Card {...foundDefaultCO || foundDefaultNat} addToVisited={this.addToVisited}/>
+                  <Card {...foundDefaultCO || foundDefaultNat}/>
                   <ImagesContainer />
                   <NotesContainer addNote={this.addNote} notes={this.state.notes}/>
                 </div>
@@ -165,11 +161,12 @@ export class App extends Component {
 export const mapStateToProps = state => ({
   stateResults: state.stateResults,
   nameResults: state.nameResults,
-  visited: state.visited
+  denverResults: state.denverResults,
+  nationalResults: state.nationalResults
 })
 
-export const mapDispatchToProps = dispatch => (
-  bindActionCreators({ addToVisited }, dispatch)
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getDenverBreweries, getNationalBreweries}, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

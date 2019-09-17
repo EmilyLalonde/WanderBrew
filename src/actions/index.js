@@ -8,12 +8,12 @@ export const getNameResults = name => ({
   name
 })
 
-export const addToVisited = visited => ({
-  type: 'ADD_VISITED',
-  visited
+export const getDenverBreweries = brewery => ({
+  type: 'GET_DENVER_BREWERIES',
+  brewery
 })
 
-export const error = message => ({
-  type: 'ERROR',
-  message
+export const getNationalBreweries = brewery => ({
+  type: 'GET_NATIONAL_BREWERIES',
+  brewery
 })

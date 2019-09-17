@@ -26,7 +26,7 @@ class NotesContainer extends Component {
       <form>
       <textarea 
       type="text" 
-      placeholder="Add notes here" 
+      placeholder="Add notes here about your experience/things to try at your next visit!" 
       name="note" 
       value={this.state.note} 
       onChange={this.handleChange}>

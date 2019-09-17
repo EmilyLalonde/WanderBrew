@@ -7,8 +7,8 @@ import { getBreweriesByState } from "../../apiCalls/apiCalls";
 import StateContainer from '../StateContainer/StateContainer';
 
 class StateSearchContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       state: '',
       error: '', 

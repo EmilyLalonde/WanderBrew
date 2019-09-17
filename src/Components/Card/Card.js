@@ -1,11 +1,10 @@
 import React from 'react'
 import './Card.css'
-import favorite from '../../images/favoriteIcon.svg';
-import isNotFavorite from '../../images/isNotFavorite.svg';
 
-export const Card = ({id, name, street, city, state, phone, website}) => {
+export const Card = ({id, name, street, city, state, phone}) => {
   return (
     <div className="card">
+      <button className="not-favorite"></button>
       <h2>{name}</h2>
       <p className="card-p">{street}</p>
       <p className="card-p">{city}</p>
