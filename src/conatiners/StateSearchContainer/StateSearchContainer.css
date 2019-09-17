@@ -12,9 +12,32 @@
 }
 
 .search-button {
+  background-color: #b8b8b8;
+  border-left: 2px solid black;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
   height: 46px;
   float: right;
   width: 15%;
+}
+
+.map-search-button:hover,
+.search-button:hover {
+  box-shadow:
+  0 0 0.1vw  0.1vw #fff7f7,   
+  0 0 0.3vw  0.3vw #002236, 
+  0 0   1.5vw  0.2vw #b8b8b8,
+  inset 0 0 1vw  0.2vw #b8b8b8,
+  inset 0 0 0.3vw  0.1vw #002236,
+  inset 0 0 0.1vw  0.1vw #fff7f7;
+  background-color: rgba(0, 0, 0, .3)
+}
+
+.map-search-button.disabled,
+.search-button.disabled {
+  opacity: 0.65; 
+  cursor: not-allowed;
 }
 
 h4 {

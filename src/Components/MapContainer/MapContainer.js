@@ -91,7 +91,7 @@ export class MapContainer extends Component {
           value={this.state.state}
           onChange={this.handleChange}
         />
-        <button className="map-search-button" onClick={this.handleSubmitState}>
+        <button className="map-search-button" disabled={!this.state.state}onClick={this.handleSubmitState}>
           Submit
         </button>
         </div>
@@ -104,7 +104,7 @@ export class MapContainer extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button className="map-search-button" onClick={this.handleSubmitName}>
+        <button className="map-search-button" disabled={!this.state.name} onClick={this.handleSubmitName}>
           Submit
         </button>
         </div>
