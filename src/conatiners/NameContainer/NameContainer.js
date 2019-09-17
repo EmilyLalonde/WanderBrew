@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './NameContainer.css'
 import Card from '../../Components/Card/Card'
 
-const NameContainer = ({nameResults}) => {
+export const NameContainer = ({nameResults}) => {
   let searchResults = nameResults.map(nameObj => {
       return (
       <Link to={`/name-search/${nameObj.id}`} key={nameObj.id}>

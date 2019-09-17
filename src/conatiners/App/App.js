@@ -7,12 +7,11 @@ import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../ap
 import { getDenverBreweries, getNationalBreweries} from '../../actions'
 import "./App.css";
 import MapContainer from "../../Components/MapContainer/MapContainer";
-import LandingContainer from "../../Components/LandingContainer/LandingContainer"
 import StateSearchContainer from "../StateSearchContainer/StateSearchContainer"
 import NameSearchContainer from "../NameSearchContainer/NameSearchContainer"
 import NavContainer from '../../Components/NavContainer/NavConatiner'
 import Card from '../../Components/Card/Card'
-import HomeContainer from '../../Components/HomeContainer/HomeContainer'
+import HomeContainer from '../../conatiners/HomeContainer/HomeContainer'
 import ImagesContainer from '../../Components/ImagesContainer/ImagesContainer'
 import NotesContainer from '../../Components/NotesConatiner/NotesContainer'
 
@@ -42,16 +41,7 @@ export class App extends Component {
   render() {
     const { stateResults, nameResults} = this.props
     return (
-      <div className="body">
-      <Route
-        exact
-        path="/landing"
-        render={() => (
-          <div>
-            <LandingContainer />
-          </div>
-        )}
-      />
+      <div>
       <Route
         exact
         path="/"

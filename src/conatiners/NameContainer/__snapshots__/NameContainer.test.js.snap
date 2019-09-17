@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NameContainer should match snapshot 1`] = `
+<div
+  className="name-search-results"
+>
+  <Link
+    key="1516"
+    to="/name-search/1516"
+  >
+    <Card
+      city="Denver"
+      id={1516}
+      key="1516"
+      name="Ratio Beerworks"
+      phone="3012669264"
+      state="Colorado"
+      street="2920 Larimer St"
+    />
+  </Link>
+</div>
+`;

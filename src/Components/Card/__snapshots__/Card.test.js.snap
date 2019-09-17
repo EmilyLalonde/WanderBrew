@@ -4,20 +4,18 @@ exports[`Card should match the snapshot with all data being passed correctly 1`]
 <div
   className="card"
 >
-  <h1>
-    Ratio Beerworks
-  </h1>
-  <p>
-    2920 Larimer St
-  </p>
-  <p>
-    Denver
-  </p>
-  <p>
-    Colorado
-  </p>
-  <p>
-    3012669264
-  </p>
+  <h2 />
+  <p
+    className="card-p"
+  />
+  <p
+    className="card-p"
+  />
+  <p
+    className="card-p"
+  />
+  <p
+    className="card-p"
+  />
 </div>
 `;

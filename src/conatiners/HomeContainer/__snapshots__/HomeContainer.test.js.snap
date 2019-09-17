@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeContainer should match the snapshot 1`] = `
+<div>
+  <h3>
+    Featured Denver Breweries
+  </h3>
+  <DefaultBreweriesContainer />
+  <h3>
+    Featured National Breweries
+  </h3>
+  <DefaultBreweriesContainer />
+</div>
+`;

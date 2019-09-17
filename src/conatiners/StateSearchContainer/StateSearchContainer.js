@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { getStateResults } from '../../actions'
-import './StateSearchContainer.css'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getStateResults } from "../../actions";
+import "./StateSearchContainer.css";
 import { getBreweriesByState } from "../../apiCalls/apiCalls";
-import StateContainer from '../StateContainer/StateContainer';
+import StateContainer from "../StateContainer/StateContainer";
 
-class StateSearchContainer extends Component {
+export class StateSearchContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      state: '',
-      error: '', 
+      state: "",
+      error: "",
       favorites: []
-    }
+    };
   }
 
   handleChange = event => {
@@ -23,42 +23,43 @@ class StateSearchContainer extends Component {
   handleSubmitState = async () => {
     this.setState({ state: "" });
     const { state } = this.state;
-    const { getStateResults } = this.props
-    getBreweriesByState(state)
-    .then(data => getStateResults(data))
-  }
+    const { getStateResults } = this.props;
+    getBreweriesByState(state).then(data => getStateResults(data));
+  };
 
   render() {
     return (
       <main className="state-main">
         <div className="state-input-container">
-        <input
-          type="text"
-          placeholder="Search for a State..."
-          name="state"
-          className="search"
-          value={this.state.state}
-          onChange={this.handleChange}
-        />
-        <button className="search-button" onClick={this.handleSubmitState}>
-          Submit
-        </button>
+          <input
+            type="text"
+            placeholder="Search for a State..."
+            name="state"
+            className="search"
+            value={this.state.state}
+            onChange={this.handleChange}
+          />
+          <button className="search-button" onClick={this.handleSubmitState}>
+            Submit
+          </button>
         </div>
         <div className="state-search-container">
-        <StateContainer />
-        <h4>^ Search for Breweries by State ^</h4>
+          <StateContainer />
+          <h4>^ Search for Breweries by State ^</h4>
         </div>
-        </main>
-    )
+      </main>
+    );
   }
 }
 
 const mapStateToProps = state => ({
   stateResults: state.stateResults
-})
+});
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators({ getStateResults }, dispatch)
-)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ getStateResults }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(StateSearchContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StateSearchContainer);
