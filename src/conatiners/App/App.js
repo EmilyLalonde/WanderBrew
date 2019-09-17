@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addToVisited } from '../../actions/'
+import { addToVisited } from '../../actions'
 import { NavLink } from 'react-router-dom';
 import { getPopularDenverBreweries, getPopularBreweriesNational } from '../../apiCalls/apiCalls'
 import "./App.css";
-import MapContainer from "../MapContainer/MapContainer";
-import LandingContainer from "../LandingContainer/LandingContainer"
-import StateSearchContainer from "../../conatiners/StateSearchContainer/StateSearchContainer"
-import NameSearchContainer from "../../conatiners/NameSearchContainer/NameSearchContainer"
-import NavContainer from '../NavContainer/NavConatiner'
-import Card from '../Card/Card'
-import HomeContainer from '../HomeContainer/HomeContainer'
-import ImagesContainer from '../ImagesContainer/ImagesContainer'
-import NotesContainer from '../NotesConatiner/NotesContainer'
+import MapContainer from "../../Components/MapContainer/MapContainer";
+import LandingContainer from "../../Components/LandingContainer/LandingContainer"
+import StateSearchContainer from "../StateSearchContainer/StateSearchContainer"
+import NameSearchContainer from "../NameSearchContainer/NameSearchContainer"
+import NavContainer from '../../Components/NavContainer/NavConatiner'
+import Card from '../../Components/Card/Card'
+import HomeContainer from '../../Components/HomeContainer/HomeContainer'
+import ImagesContainer from '../../Components/ImagesContainer/ImagesContainer'
+import NotesContainer from '../../Components/NotesConatiner/NotesContainer'
 
 
 export class App extends Component {
