@@ -6,7 +6,7 @@ const ImagesContainer = () => {
   let img = beerImages
   return (
     <div className="image">
-      <img src={img[Math.floor(Math.random() * Math.floor(7))].img} alt='' />
+      <img src={img[Math.floor(Math.random() * Math.floor(26))].img} alt='' />
     </div>
   )
 }

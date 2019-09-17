@@ -28,7 +28,6 @@ class NameSearchContainer extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <main className="name-main">
       <div className="name-input-container">
@@ -45,7 +44,7 @@ class NameSearchContainer extends Component {
         </button>
       </div>
       <div className="name-search-container">
-        <NameContainer />
+        <NameContainer/>
         <h4>^ Search for Breweries by Name ^</h4>
         </div>
       </main>

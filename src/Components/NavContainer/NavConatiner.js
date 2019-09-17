@@ -6,11 +6,11 @@ const NavContainer = () => {
     return (
         <nav>
             <h1 className="site-header">WanderBrew</h1>
-            <div class="overlay">
+            <div className="overlay">
             <label for="toggle"></label>
             </div>
             <input type="checkbox" id="toggle" name="toggle" />
-            <div class="verticalNav">
+            <div className="verticalNav">
             <NavLink to='/' className='Nav'>Home</NavLink>
             <NavLink to='/state-search' className='Nav'>Search Brewery by State</NavLink>
             <NavLink to='/name-search' className='Nav'>Search Brewery by Name</NavLink>

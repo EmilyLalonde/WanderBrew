@@ -20,7 +20,7 @@ const DefaultBreweriesContainer = ({breweries}) => {
     )
   })
   return (
-    <main class="default-page">
+    <main className="default-page">
       {denBreweries}
     </main>
   )
