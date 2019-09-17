@@ -17,7 +17,7 @@ import ImagesContainer from '../ImagesContainer/ImagesContainer'
 import NotesContainer from '../NotesConatiner/NotesContainer'
 
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -45,7 +45,6 @@ class App extends Component {
 
   render() {
     const { stateResults, nameResults} = this.props
-    console.log(stateResults)
     return (
       <div className="body">
       <Route
@@ -163,13 +162,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   stateResults: state.stateResults,
   nameResults: state.nameResults,
   visited: state.visited
 })
 
-const mapDispatchToProps = dispatch => (
+export const mapDispatchToProps = dispatch => (
   bindActionCreators({ addToVisited }, dispatch)
 )
 
