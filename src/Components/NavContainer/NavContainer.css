@@ -30,7 +30,6 @@ nav {
 
 .verticalNav {
   box-sizing: border-box;
-  font-size: 22px;
   margin-left: 34%;
   position: relative;
   top: -400px;
@@ -41,6 +40,7 @@ nav {
 .verticalNav a {
   display: inline-block;
   color: black;
+  font-size: 24px;
   font-weight: 300;
   margin-left: 2%;
   margin-right: 2%;
@@ -68,9 +68,9 @@ nav {
 .site-header {
   margin: 0;
   float: left;
-  font-size: 60px;
+  font-size: 78px;
   margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 15px;
   width: 25%;
 }
 
@@ -79,7 +79,8 @@ nav {
   border: none;
   background-image: url("https://library.kissclipart.com/20180829/hue/kissclipart-beer-glass-icon-clipart-root-beer-beer-glasses-95825dc9d62b3d7c.png");
   background-size: cover;
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  margin-top: 20px;
+  width: 70px;
   float: left;
 }

@@ -19,6 +19,8 @@ h2 {
 
 .card-p {
   color: black;
+  font-size: 18px;
+  /* margin:0; */
 }
 
 a {
