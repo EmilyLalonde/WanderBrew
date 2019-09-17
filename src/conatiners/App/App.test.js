@@ -1,31 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-import { App, mapStateToProps, mapDispatchToProps } from './App';
-import { getBreweriesByState, getBreweriesByName, getPopularDenverBreweries, getPopularBreweriesNational } from "../../apiCalls/apiCalls";
+import { App, mapStateToProps } from './App';
+import { getPopularDenverBreweries, getPopularBreweriesNational } from "../../apiCalls/apiCalls";
 
 jest.mock('../../apiCalls/apiCalls');
-
-getBreweriesByState.mockImplementation(() => {
-  return Promise.resolve({
-    id: 1516, 
-    name: 'Ratio Beerworks', 
-    street: '2920 Larimer St', 
-    city: 'Denver', 
-    state:'Colorado', 
-    phone:'3012669264'
-  })
-});
-
-getBreweriesByName.mockImplementation(() => {
-  return Promise.resolve({
-    id: 1516, 
-    name: 'Ratio Beerworks', 
-    street: '2920 Larimer St', 
-    city: 'Denver', 
-    state:'Colorado', 
-    phone:'3012669264'
-  })
-});
 
 getPopularDenverBreweries.mockImplementation(() => {
   return Promise.resolve({

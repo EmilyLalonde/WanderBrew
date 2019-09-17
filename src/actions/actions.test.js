@@ -1,7 +1,8 @@
 import { 
   getStateResults, 
   getNameResults,
-  addToVisited 
+  getDenverBreweries,
+  getNationalBreweries
 } from '../actions';
 
 describe('actions', () => {
@@ -26,12 +27,22 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   });
 
-  it('should return the correct action object for the action type - addToVisited', () => {
+  it('should return the correct action object for the action type - getDenverBreweries', () => {
     const mockResult = {id: 1516, name: 'Ratio Beerworks', street: '2920 Larimer St', city: 'Denver', state:'Colorado', phone:'3012669264'}
-    const result = addToVisited(mockResult);
+    const result = getDenverBreweries(mockResult);
     const expected = {
-      type: 'ADD_VISITED',
-      visited: mockResult
+      type: 'GET_DENVER_BREWERIES',
+      brewery: mockResult
+    }
+    expect(result).toEqual(expected);
+  });
+
+  it('should return the correct action object for the action type - getNationalBreweries', () => {
+    const mockResult = {id: 1516, name: 'Ratio Beerworks', street: '2920 Larimer St', city: 'Denver', state:'Colorado', phone:'3012669264'}
+    const result = getNationalBreweries(mockResult);
+    const expected = {
+      type: 'GET_NATIONAL_BREWERIES',
+      brewery: mockResult
     }
     expect(result).toEqual(expected);
   });

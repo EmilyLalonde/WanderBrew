@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import './HomeContainer.css'
-import DefaultBreweriesContainer from '../DefaultBreweriesContainer/DefaultBreweriesContainer'
+import DefaultBreweriesContainer from '../../Components/DefaultBreweriesContainer/DefaultBreweriesContainer'
 
-const HomeContainer = (props) => {
+export const HomeContainer = (props) => {
     return (
     <div>
       <h3>Featured Denver Breweries</h3>

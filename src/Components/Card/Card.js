@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Card.css'
 
-export const Card = ({id, name, street, city, state, phone}) => {
+export const Card = ({name, street, city, state, phone}) => {
   return (
     <div className="card">
       <h2>{name}</h2>

@@ -60,4 +60,7 @@ const mapDispatchToProps = dispatch => (
   bindActionCreators({ getNameResults }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(NameSearchContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NameSearchContainer);
