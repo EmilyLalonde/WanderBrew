@@ -1,24 +1,23 @@
 # WanderBrew
 
 WanderBrew is a site where you can look up breweries by state or name and get their information. You can also search on google maps for breweries by state and name. You can select sppecific breweries to view their information and leave notes about your experiences there or what you would like to try at your next visit
+#### Learning Goals For This Project:
+- Continue to write clear and SRP code using ES6 syntax
 
-Learning Goals For This Project:
-Continue to write clear and SRP code using ES6 syntax
+- Solidify React concepts
 
-Solidify React concepts
+- Become comfortable using th fetch api for GET/POST/DELETE requests
 
-Become comfortable using th fetch api for GET/POST/DELETE requests
+- Get comfortable with Redux lifecycle methods/actions/reducers
 
-Get comfortable with Redux lifecycle methods/actions/reducers
+- Make informed design descisions 
 
-Make informed design descisions
-
-This Project Utilizes:
-React/Redux
-Jest
-Enzyme
-Webpack
-React Router
+#### This Project Utilizes:
+- React/Redux
+- Jest
+- Enzyme
+- Webpack
+- React Router
 
 ### Home-Page:
 ![image](https://user-images.githubusercontent.com/47184994/65048589-99dc2380-d921-11e9-9606-6e0b9fdae01f.png)
