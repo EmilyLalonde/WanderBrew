@@ -6,7 +6,7 @@ import './NameSearchContainer.css'
 import { getBreweriesByName } from "../../apiCalls/apiCalls";
 import NameContainer from '../NameContainer/NameContainer';
 
-class NameSearchContainer extends Component {
+export class NameSearchContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,6 +25,7 @@ class NameSearchContainer extends Component {
     const { getNameResults } = this.props
     getBreweriesByName(name)
     .then(data => getNameResults(data))
+    .catch(err => console.log(err))
   }
 
   render() {
