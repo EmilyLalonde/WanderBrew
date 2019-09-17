@@ -39,7 +39,7 @@ class NameSearchContainer extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button className="search-button" onClick={this.handleSubmitName}>
+        <button className="search-button" disabled={!this.state.name} onClick={this.handleSubmitName}>
           Submit
         </button>
       </div>

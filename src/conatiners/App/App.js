@@ -39,7 +39,7 @@ export class App extends Component {
 } 
 
   render() {
-    const { stateResults, nameResults} = this.props
+    const { stateResults, nameResults, denverResults, nationalResults} = this.props
     return (
       <div>
       <Route
@@ -125,10 +125,10 @@ export class App extends Component {
         <Route
           path="/home/:id"
           render={({ match }) => {
-            const foundDefaultCO = this.props.getDenverBreweries.find(
+            const foundDefaultCO = denverResults.find(
               brew => brew.id === parseInt(match.params.id)
             );
-            const foundDefaultNat = this.props.getNationalBreweries.find(
+            const foundDefaultNat = nationalResults.find(
               brew => brew.id === parseInt(match.params.id)
             );
               return (
