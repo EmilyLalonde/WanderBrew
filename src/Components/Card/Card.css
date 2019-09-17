@@ -1,5 +1,6 @@
 .card {
   border: 1px solid black;
+  box-shadow: 5px 10px 8px #888888;
   margin-left: 8%;
   margin-top: 20px;
   text-align: center;
@@ -24,24 +25,4 @@ a {
   text-decoration: none;
  }
 
- .not-favorite {
-  background-color: rgba(0,0,0,0);
-  border: none;
-  background-image: url("https://library.kissclipart.com/20180829/hue/kissclipart-beer-glass-icon-clipart-root-beer-beer-glasses-95825dc9d62b3d7c.png");
-  background-size: cover;
-  height: 50px;
-  margin-right: 4%;
-  width: 40px;
-  float: right;
-}
 
-.favorite {
-  background-color: rgba(0,0,0,0);
-  border: none;
-  background-image: url("https://cpng.pikpng.com/pngl/s/519-5195434_glass-icon-png-beer-mug-icon-png-transparent.png");
-  background-size: cover;
-  height: 50px;
-  margin-right: 4%;
-  width: 40px;
-  float: right;
-}

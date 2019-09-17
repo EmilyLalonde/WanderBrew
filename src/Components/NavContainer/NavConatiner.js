@@ -6,6 +6,7 @@ const NavContainer = () => {
     return (
         <nav>
             <h1 className="site-header">WanderBrew</h1>
+            <p className="logo"></p>
             <div className="overlay">
             <label for="toggle"></label>
             </div>
@@ -21,3 +22,4 @@ const NavContainer = () => {
 }
 
 export default NavContainer
+

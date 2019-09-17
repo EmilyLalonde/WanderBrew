@@ -4,7 +4,6 @@ import './Card.css'
 export const Card = ({id, name, street, city, state, phone}) => {
   return (
     <div className="card">
-      <button className="not-favorite"></button>
       <h2>{name}</h2>
       <p className="card-p">{street}</p>
       <p className="card-p">{city}</p>
