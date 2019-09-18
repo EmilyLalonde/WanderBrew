@@ -24,7 +24,9 @@ export class StateSearchContainer extends Component {
     this.setState({ state: "" });
     const { state } = this.state;
     const { getStateResults } = this.props;
-    getBreweriesByState(state).then(data => getStateResults(data));
+    getBreweriesByState(state)
+    .then(data => getStateResults(data))
+    .catch(err => console.log(err))
   };
 
   render() {
@@ -56,10 +58,8 @@ const mapStateToProps = state => ({
   stateResults: state.stateResults
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getStateResults }, dispatch);
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getStateResults }, dispatch)
+)
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StateSearchContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(StateSearchContainer);

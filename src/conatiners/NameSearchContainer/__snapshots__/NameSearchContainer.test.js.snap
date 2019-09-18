@@ -1,3 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NameSearchContainer should match the snapshot 1`] = `undefined`;
+exports[`NameSearchContainer should match the snapshot 1`] = `
+<main
+  className="name-main"
+>
+  <div
+    className="name-input-container"
+  >
+    <input
+      className="search"
+      name="name"
+      onChange={[Function]}
+      placeholder="Search for a name..."
+      type="text"
+      value=""
+    />
+    <button
+      className="search-button"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+  </div>
+  <div
+    className="name-search-container"
+  >
+    <Connect(NameContainer) />
+    <h4>
+      ^ Search for Breweries by Name ^
+    </h4>
+  </div>
+</main>
+`;

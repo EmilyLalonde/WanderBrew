@@ -17,6 +17,7 @@ exports[`StateSearchContainer should match the snapshot 1`] = `
     />
     <button
       className="search-button"
+      disabled={true}
       onClick={[Function]}
     >
       Submit
